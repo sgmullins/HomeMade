@@ -14,7 +14,7 @@ import SignUp from './components/Auth/SignUp';
 // import SignUpHook from './components/Auth/SignUpHook';
 import { NavBar } from './components/NavBar/NavBar';
 import { Search } from './components/Meal/Search';
-import { AddMeal } from './components/Meal/AddMeal';
+import AddMeal from './components/Meal/AddMeal';
 import { Profile } from './components/Profile/Profile';
 import MealPage from './components/Meal/MealPage';
 import ApolloClient from 'apollo-boost';
@@ -51,7 +51,11 @@ const Root = ({ refetch, session }) => (
       <Route path='/signin' render={() => <SignIn refetch={refetch} />} />
       <Route path='/signup' render={() => <SignUp refetch={refetch} />} />
       {/* <Route path='/signup' exact component={SignUpHook} /> */}
-      <Route exact path='/meal/add' component={AddMeal} />
+      <Route
+        exact
+        path='/meal/add'
+        render={() => <AddMeal session={session} />}
+      />
       <Route exact path='/profile' component={Profile} />
       <Route path='/meal/:_id' component={MealPage} />
       <Redirect to='/' />

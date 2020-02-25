@@ -31,11 +31,11 @@ const MealSchema = new Schema(
       required: true,
     },
     amount: {
-      type: Number,
+      type: String,
       required: true,
     },
     price: {
-      type: Number,
+      type: String,
       required: true,
     },
     madeDate: {
@@ -61,12 +61,9 @@ const MealSchema = new Schema(
         required: false,
       },
     },
-    images: [
-      {
-        url: String,
-        public_id: String,
-      },
-    ],
+    images: {
+      type: String,
+    },
   },
   { timestamps: true }, //added for later use of expiring foods???
 );

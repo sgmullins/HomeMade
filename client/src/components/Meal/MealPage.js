@@ -25,7 +25,6 @@ const MealPage = ({ match }) => {
     instructions,
     amount,
     price,
-    madeDate,
     location,
     username,
   } = data.getMeal;
@@ -40,7 +39,6 @@ const MealPage = ({ match }) => {
       <p>Instructions: {instructions}</p>
       <p>Amount: {amount}</p>
       <p>Price: {price}</p>
-      <p>MadeOn: {madeDate}</p>
       <p>Location: {location}</p>
       <p>Created By: {username}</p>
       <button>Like</button>

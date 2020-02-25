@@ -10,9 +10,9 @@ exports.typeDefs = gql`
     ingredients: String!
     likes: Int
     instructions: String!
-    amount: Int!
-    price: Float!
-    madeDate: String!
+    amount: String!
+    madeDate: String
+    price: String!
     username: String!
     location: String!
     geometry: String
@@ -49,12 +49,12 @@ exports.typeDefs = gql`
       description: String!
       ingredients: String!
       instructions: String!
-      amount: Int!
-      price: Float!
-      madeDate: String!
+      amount: String!
+      allergens: String
+      price: String!
       username: String
       location: String!
-      images: [String]
+      images: String
     ): Meal
 
     loginUser(username: String!, password: String!): Token

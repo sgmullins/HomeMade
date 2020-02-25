@@ -10,7 +10,9 @@ const createToken = (user, secret, expiresIn) => {
 exports.resolvers = {
   Query: {
     getAllMeals: async (parent, args, { models: { Meal } }) => {
-      const allMeals = await Meal.find();
+      const allMeals = await Meal.find().sort({
+        madeDate: 'desc',
+      });
       return allMeals;
     },
 
@@ -45,7 +47,8 @@ exports.resolvers = {
         instructions,
         amount,
         price,
-        madeDate,
+        // madeDate,
+        allergens,
         username,
         location,
         images,
@@ -60,7 +63,8 @@ exports.resolvers = {
         instructions,
         amount,
         price,
-        madeDate,
+        allergens,
+        // madeDate,
         username,
         location,
         images,

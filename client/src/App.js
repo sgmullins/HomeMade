@@ -22,7 +22,6 @@ function App() {
 
   return (
     <div className='App'>
-      {console.log(data.getAllMeals)}
       <h1>Home</h1>
       <ul>
         {data.getAllMeals.map(meal => (

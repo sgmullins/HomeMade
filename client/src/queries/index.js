@@ -12,7 +12,7 @@ export const GET_ALL_MEALS = gql`
       instructions
       amount
       price
-      madeDate
+      # madeDate
       # username
       location
       #images
@@ -35,12 +35,30 @@ export const GET_ONE_MEAL = gql`
       price
       madeDate
       location
+      username
     }
   }
 `;
 
 /* Meal Mutations */
-
+export const ADD_MEAL = gql`
+  mutation($title: String!, $category: String!, $description: String!, $ingredients: String!, $instructions: String!, $allergens: String, $amount: String!, $price: String!, $username: String, $location: String!) {
+    addMeal(title: $title, category: $category, description: $description, ingredients: $ingredients, instructions: $instructions, amount: $amount, price: $price, allergens: $allergens, username: $username,location: $location) {
+      _id
+      title
+      category
+      description
+      allergens
+      ingredients
+      likes
+      instructions
+      amount
+      price
+      madeDate
+      location
+    }
+  }
+`;
 /* User Queries */
 export const GET_CURRENT_USER = gql`
   query {
