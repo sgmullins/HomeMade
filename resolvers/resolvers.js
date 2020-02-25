@@ -14,6 +14,11 @@ exports.resolvers = {
       return allMeals;
     },
 
+    getMeal: (parent, { _id }, { models: { Meal } }) => {
+      const meal = Meal.findOne({ _id });
+      return meal;
+    },
+
     getCurrentUser: async (parent, args, { currentUser, models: { User } }) => {
       if (!currentUser) return null;
       const user = await User.findOne({ username: currentUser.username })
@@ -71,7 +76,7 @@ exports.resolvers = {
       if (!matchPasswords) {
         throw new AuthenticationError('Invalid credentials');
       }
-      return { token: createToken(user, process.env.SECRET, '1hr') };
+      return { token: createToken(user, process.env.SECRET, '23hr') };
     },
     createUser: async (
       parent,

@@ -16,6 +16,7 @@ import { NavBar } from './components/NavBar/NavBar';
 import { Search } from './components/Meal/Search';
 import { AddMeal } from './components/Meal/AddMeal';
 import { Profile } from './components/Profile/Profile';
+import MealPage from './components/Meal/MealPage';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 // import { withSession } from './components/Auth/withSession';
@@ -52,7 +53,7 @@ const Root = ({ refetch, session }) => (
       {/* <Route path='/signup' exact component={SignUpHook} /> */}
       <Route exact path='/meal/add' component={AddMeal} />
       <Route exact path='/profile' component={Profile} />
-
+      <Route path='/meal/:_id' component={MealPage} />
       <Redirect to='/' />
     </Switch>
   </Router>

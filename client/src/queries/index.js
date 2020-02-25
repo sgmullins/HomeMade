@@ -20,6 +20,25 @@ export const GET_ALL_MEALS = gql`
   }
 `;
 
+export const GET_ONE_MEAL = gql`
+  query($_id: ID!) {
+    getMeal(_id: $_id) {
+      _id
+      title
+      category
+      description
+      allergens
+      ingredients
+      likes
+      instructions
+      amount
+      price
+      madeDate
+      location
+    }
+  }
+`;
+
 /* Meal Mutations */
 
 /* User Queries */
