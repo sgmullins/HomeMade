@@ -42,7 +42,12 @@ exports.resolvers = {
         return meals;
       }
     },
-
+    getUserMeals: async (parent, { username }, { models: { Meal } }) => {
+      const userMeals = await Meal.find({ username }).sort({
+        madeDate: 'desc',
+      });
+      return userMeals;
+    },
     getCurrentUser: async (parent, args, { currentUser, models: { User } }) => {
       if (!currentUser) return null;
       const user = await User.findOne({ username: currentUser.username })

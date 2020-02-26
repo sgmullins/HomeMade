@@ -42,6 +42,8 @@ exports.typeDefs = gql`
     getMeal(_id: ID!): Meal
 
     getCurrentUser: User
+
+    getUserMeals(username: String!): [Meal]
   }
 
   type Mutation {

@@ -88,6 +88,17 @@ export const GET_CURRENT_USER = gql`
   }
 `;
 
+export const GET_USER_MEALS = gql`
+query($username: String!){
+  getUserMeals(username: $username){
+    _id
+    title 
+    likes
+    
+  }
+}
+`
+
 /* User Mutations */
 export const LOGIN_USER = gql`
   mutation($username: String!, $password: String!) {

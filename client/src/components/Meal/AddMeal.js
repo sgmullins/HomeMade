@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo';
 import { ADD_MEAL, GET_ALL_MEALS } from '../../queries/index';
 import { withRouter } from 'react-router-dom';
 import Error from '../Error';
+import { withAuthHook } from '../Auth/withAuthHook';
 
 const initialState = {
   title: '',
@@ -218,4 +219,6 @@ class AddMeal extends React.Component {
   }
 }
 
-export default withRouter(AddMeal);
+export default withAuthHook(session => session && session.getCurrentUser)(
+  withRouter(AddMeal),
+);

@@ -16,7 +16,7 @@ import { NavBar } from './components/NavBar/NavBar';
 import Search from './components/Meal/Search';
 import SearchHook from './components/Meal/SearchHook';
 import AddMeal from './components/Meal/AddMeal';
-import { Profile } from './components/Profile/Profile';
+import Profile from './components/Profile/Profile';
 import MealPage from './components/Meal/MealPage';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
