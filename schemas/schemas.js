@@ -37,6 +37,8 @@ exports.typeDefs = gql`
   type Query {
     getAllMeals: [Meal]
 
+    searchMeals(searchTerm: String): [Meal]
+
     getMeal(_id: ID!): Meal
 
     getCurrentUser: User

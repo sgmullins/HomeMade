@@ -21,6 +21,28 @@ exports.resolvers = {
       return meal;
     },
 
+    searchMeals: async (parent, { searchTerm }, { models: { Meal } }) => {
+      if (searchTerm) {
+        const searchResults = await Meal.find(
+          {
+            $text: { $search: searchTerm },
+          },
+          {
+            score: { $meta: 'textScore' },
+          },
+        ).sort({
+          score: { $meta: 'textScore' },
+        });
+        return searchResults;
+      } else {
+        const meals = await Meal.find().sort({
+          likes: 'desc',
+          madeDate: 'desc',
+        });
+        return meals;
+      }
+    },
+
     getCurrentUser: async (parent, args, { currentUser, models: { User } }) => {
       if (!currentUser) return null;
       const user = await User.findOne({ username: currentUser.username })

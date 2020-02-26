@@ -69,7 +69,7 @@ const MealSchema = new Schema(
 );
 
 MealSchema.index({
-  geometry: '2dsphere',
+  '$**': 'text',
 });
 
 const Meal = mongoose.model('Meal', MealSchema);

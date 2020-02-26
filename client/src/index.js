@@ -13,7 +13,8 @@ import SignIn from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
 // import SignUpHook from './components/Auth/SignUpHook';
 import { NavBar } from './components/NavBar/NavBar';
-import { Search } from './components/Meal/Search';
+import Search from './components/Meal/Search';
+import SearchHook from './components/Meal/SearchHook';
 import AddMeal from './components/Meal/AddMeal';
 import { Profile } from './components/Profile/Profile';
 import MealPage from './components/Meal/MealPage';
@@ -47,7 +48,7 @@ const Root = ({ refetch, session }) => (
     <NavBar session={session} />
     <Switch>
       <Route exact path='/' component={App} />
-      <Route exact path='/search' component={Search} />
+      <Route exact path='/search' component={SearchHook} />
       <Route path='/signin' render={() => <SignIn refetch={refetch} />} />
       <Route path='/signup' render={() => <SignUp refetch={refetch} />} />
       {/* <Route path='/signup' exact component={SignUpHook} /> */}
@@ -56,7 +57,11 @@ const Root = ({ refetch, session }) => (
         path='/meal/add'
         render={() => <AddMeal session={session} />}
       />
-      <Route exact path='/profile' component={Profile} />
+      <Route
+        exact
+        path='/profile'
+        render={() => <Profile session={session} />}
+      />
       <Route path='/meal/:_id' component={MealPage} />
       <Redirect to='/' />
     </Switch>

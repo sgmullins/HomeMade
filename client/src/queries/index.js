@@ -40,6 +40,16 @@ export const GET_ONE_MEAL = gql`
   }
 `;
 
+export const SEARCH_MEALS = gql `
+query($searchTerm: String){
+  searchMeals(searchTerm: $searchTerm){
+    _id
+    title
+    likes
+  }
+}
+`
+
 /* Meal Mutations */
 export const ADD_MEAL = gql`
   mutation($title: String!, $category: String!, $description: String!, $ingredients: String!, $instructions: String!, $allergens: String, $amount: String!, $price: String!, $username: String, $location: String!) {
@@ -66,6 +76,14 @@ export const GET_CURRENT_USER = gql`
       username
       joinDate
       email
+      favorites{
+        _id
+        title
+      }
+      purchases{
+        _id
+        title
+      }
     }
   }
 `;
