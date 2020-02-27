@@ -17,7 +17,7 @@ exports.typeDefs = gql`
     location: String!
     geometry: String
     coordinates: [Int]
-    images: String
+    imageURL: String!
   }
 
   type User {
@@ -58,7 +58,7 @@ exports.typeDefs = gql`
       price: String!
       username: String
       location: String!
-      images: String
+      imageURL: String!
     ): Meal
 
     loginUser(username: String!, password: String!): Token

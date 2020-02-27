@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserInfo } from './UserInfo';
-import { UserMeals } from './UserMeals';
+import UserMeals from './UserMeals';
 import { withAuthHook } from '../Auth/withAuthHook';
 const Profile = ({ session }) => (
   <div className='App'>

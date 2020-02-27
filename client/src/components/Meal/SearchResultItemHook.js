@@ -6,7 +6,7 @@ export const SearchResultItemHook = ({ searchMeals }) => {
   return (
     <ul>
       {searchMeals.map(meal => (
-        <li>
+        <li key={meal._id}>
           <Link to={`/meal/${meal._id}`}>
             <h4>{meal.title}</h4>
           </Link>

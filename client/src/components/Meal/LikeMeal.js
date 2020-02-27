@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Mutation } from 'react-apollo';
 import { LIKE_MEAL, GET_ONE_MEAL, UNLIKE_MEAL } from '../../queries/index';
 import { withSessionHook } from '../Auth/withSessionHook';

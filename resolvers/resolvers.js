@@ -78,7 +78,7 @@ exports.resolvers = {
         allergens,
         username,
         location,
-        images,
+        imageURL,
       },
       { models: { Meal } },
     ) => {
@@ -94,7 +94,7 @@ exports.resolvers = {
         // madeDate,
         username,
         location,
-        images,
+        imageURL,
       });
       return newMeal;
     },

@@ -16,7 +16,7 @@ const initialState = {
   location: '',
   username: '',
   ingredients: '',
-  images: '',
+  imageURL: '',
 };
 class AddMeal extends React.Component {
   state = { ...initialState };
@@ -47,6 +47,7 @@ class AddMeal extends React.Component {
       amount,
       price,
       location,
+      imageURL,
     } = this.state;
     const isInvalid =
       !title ||
@@ -56,7 +57,8 @@ class AddMeal extends React.Component {
       !instructions ||
       !amount ||
       !price ||
-      !location;
+      !location ||
+      !imageURL;
 
     return isInvalid;
   };
@@ -71,6 +73,7 @@ class AddMeal extends React.Component {
       })
       .catch(err => console.log(`handle Submit error: ${err}`));
   };
+
   updateCache = (cache, { data: { addMeal } }) => {
     const { getAllMeals } = cache.readQuery({ query: GET_ALL_MEALS });
 
@@ -94,8 +97,7 @@ class AddMeal extends React.Component {
       price,
       location,
       username,
-
-      images,
+      imageURL,
     } = this.state;
     return (
       <Mutation
@@ -115,7 +117,7 @@ class AddMeal extends React.Component {
           price,
           location,
           username,
-          images,
+          imageURL,
         }}
       >
         {(addMeal, { data, loading, error }) => {
@@ -193,8 +195,8 @@ class AddMeal extends React.Component {
 
                 <input
                   type='text'
-                  value={images}
-                  name='images'
+                  value={imageURL}
+                  name='imageURL'
                   placeholder='img url'
                   onChange={this.handleChange}
                 />

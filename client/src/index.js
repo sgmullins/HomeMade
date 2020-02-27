@@ -13,7 +13,6 @@ import SignIn from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
 // import SignUpHook from './components/Auth/SignUpHook';
 import { NavBar } from './components/NavBar/NavBar';
-import Search from './components/Meal/Search';
 import SearchHook from './components/Meal/SearchHook';
 import AddMeal from './components/Meal/AddMeal';
 import Profile from './components/Profile/Profile';

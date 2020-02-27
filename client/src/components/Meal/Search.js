@@ -21,6 +21,7 @@ export default class Search extends Component {
         {client => (
           <div className='App'>
             <input
+              className='search'
               type='search'
               placeholder='Search for Meals'
               onChange={async event => {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom'; dont think we need this since I changed the route to render the component directly
+//thus givng us access to the id from history
 import { useQuery } from '@apollo/react-hooks';
 
 import LikeMeal from './LikeMeal';
@@ -28,23 +29,52 @@ const MealPage = ({ match }) => {
     price,
     location,
     username,
+    imageURL,
   } = data.getMeal;
   return (
     <div className='App'>
-      <h2>{title}</h2>
-      <p>Category: {category}</p>
-      <p>Description: {description}</p>
-      <p>Allergens: {allergens}</p>
-      <p>Ingredients: {ingredients}</p>
-      <p>Likes: {likes}</p>
-      <p>Instructions: {instructions}</p>
-      <p>Amount: {amount}</p>
-      <p>Price: {price}</p>
-      <p>Location: {location}</p>
-      <p>Created By: {username}</p>
-      <LikeMeal _id={_id} />
+      <div
+        style={{
+          background: `url(${imageURL}) center center /cover no-repeat`,
+        }}
+        className='meal-image'
+      ></div>
+      <div className='meal'>
+        <div className='meal-header'>
+          <h2 className='meal-title'>
+            <strong>{title}</strong>
+          </h2>
+          <h5>
+            <strong>{category}</strong>
+          </h5>
+          <p>
+            Made by <strong>{username}</strong>
+          </p>
+          <p>
+            {likes}{' '}
+            <span role='img' aria-label='on fire'>
+              🔥
+            </span>
+          </p>
+        </div>
+        <h3 className='meal-instructions__title'>Description</h3>
+        <blockquote className='meal-description'>{description}</blockquote>
+        <h3 className='meal-instructions__title'>Instructions</h3>
+        <blockquote className='meal-description'>{instructions}</blockquote>
+        <h3 className='meal-instructions__title'>Ingredients</h3>
+        <blockquote className='meal-description'>{ingredients}</blockquote>
+        <h3 className='meal-instructions__title'>Allergens</h3>
+        <blockquote className='meal-description'>{allergens}</blockquote>
+        <div className='monies'>
+          <h3>Cost: ${price}</h3>
+          <h3>Amount Available: {amount}</h3>
+        </div>
+        <h3 className='meal-instructions__title'>{location}</h3>
+
+        <LikeMeal _id={_id} />
+      </div>
     </div>
   );
 };
 
-export default withRouter(MealPage);
+export default MealPage;

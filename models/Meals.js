@@ -61,8 +61,9 @@ const MealSchema = new Schema(
     //     required: false,
     //   },
     // },
-    images: {
+    imageURL: {
       type: String,
+      required: true,
     },
   },
   { timestamps: true }, //added for later use of expiring foods???

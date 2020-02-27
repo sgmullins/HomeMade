@@ -19,11 +19,13 @@ function App() {
         </span>
       </p>
     );
-
+  console.log(data);
   return (
     <div className='App'>
-      <h1>Home</h1>
-      <ul>
+      <h1 className='main-title'>
+        Find A Meal Made For <strong>You</strong>
+      </h1>
+      <ul className='cards'>
         {data.getAllMeals.map(meal => (
           <MealItem {...meal} key={meal._id} />
         ))}
