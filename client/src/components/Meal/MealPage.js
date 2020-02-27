@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 
+import LikeMeal from './LikeMeal';
 import { GET_ONE_MEAL } from '../../queries/index';
 
 const MealPage = ({ match }) => {
@@ -41,7 +42,7 @@ const MealPage = ({ match }) => {
       <p>Price: {price}</p>
       <p>Location: {location}</p>
       <p>Created By: {username}</p>
-      <button>Like</button>
+      <LikeMeal _id={_id} />
     </div>
   );
 };

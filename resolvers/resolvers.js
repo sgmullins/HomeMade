@@ -98,6 +98,18 @@ exports.resolvers = {
       });
       return newMeal;
     },
+    deleteUserMeal: async (parent, { _id }, { models: { Meal } }) => {
+      const meal = await Meal.findOneAndRemove({ _id });
+      return meal;
+    },
+    likeMeal: async (parent, { _id, username }, { models: { Meal, User } }) => {
+      const meal = await Meal.findOneAndUpdate({ _id }, { $inc: { likes: 1 } });
+      const user = await User.findOneAndUpdate(
+        { username },
+        { $addToSet: { favorites: _id } },
+      );
+      return meal;
+    },
     loginUser: async (parent, { username, password }, { models: { User } }) => {
       const user = await User.findOne({ username });
       if (!user) {

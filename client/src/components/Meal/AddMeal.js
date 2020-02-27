@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
-import { ADD_MEAL, GET_ALL_MEALS } from '../../queries/index';
+import { ADD_MEAL, GET_ALL_MEALS, GET_USER_MEALS } from '../../queries/index';
 import { withRouter } from 'react-router-dom';
 import Error from '../Error';
 import { withAuthHook } from '../Auth/withAuthHook';
@@ -101,6 +101,9 @@ class AddMeal extends React.Component {
       <Mutation
         mutation={ADD_MEAL}
         update={this.updateCache}
+        refetchQueries={() => [
+          { query: GET_USER_MEALS, variables: { username } },
+        ]} //updates homepage with new recipe
         variables={{
           title,
           category,

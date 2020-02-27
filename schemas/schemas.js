@@ -62,7 +62,12 @@ exports.typeDefs = gql`
     ): Meal
 
     loginUser(username: String!, password: String!): Token
+
     createUser(username: String!, email: String!, password: String!): Token
+
+    deleteUserMeal(_id: ID!): Meal
+
+    likeMeal(_id: ID!, username: String!): Meal
   }
 `;
 

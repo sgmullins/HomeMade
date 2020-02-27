@@ -98,6 +98,22 @@ query($username: String!){
   }
 }
 `
+export const DELETE_USER_MEAL = gql `
+mutation($_id: ID!){
+  deleteUserMeal(_id: $_id){
+    _id
+  }
+}
+`
+
+export const LIKE_MEAL = gql `
+mutation($_id: ID!, $username: String!){
+  likeMeal(_id: $_id, username: $username){
+    _id
+    likes
+  }
+}
+`
 
 /* User Mutations */
 export const LOGIN_USER = gql`
