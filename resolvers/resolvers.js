@@ -110,6 +110,21 @@ exports.resolvers = {
       );
       return meal;
     },
+    unlikeMeal: async (
+      parent,
+      { _id, username },
+      { models: { Meal, User } },
+    ) => {
+      const meal = await Meal.findOneAndUpdate(
+        { _id },
+        { $inc: { likes: -1 } },
+      );
+      const user = await User.findOneAndUpdate(
+        { username },
+        { $pull: { favorites: _id } },
+      );
+      return meal;
+    },
     loginUser: async (parent, { username, password }, { models: { User } }) => {
       const user = await User.findOne({ username });
       if (!user) {

@@ -68,6 +68,8 @@ exports.typeDefs = gql`
     deleteUserMeal(_id: ID!): Meal
 
     likeMeal(_id: ID!, username: String!): Meal
+
+    unlikeMeal(_id: ID!, username: String!): Meal
   }
 `;
 

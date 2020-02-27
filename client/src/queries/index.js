@@ -114,6 +114,14 @@ mutation($_id: ID!, $username: String!){
   }
 }
 `
+export const UNLIKE_MEAL = gql `
+mutation($_id: ID!, $username: String!){
+  unlikeMeal(_id: $_id, username: $username){
+    _id
+    likes
+  }
+}
+`
 
 /* User Mutations */
 export const LOGIN_USER = gql`

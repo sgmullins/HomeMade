@@ -121,7 +121,7 @@ class AddMeal extends React.Component {
         {(addMeal, { data, loading, error }) => {
           return (
             <div className='App'>
-              <h2 className='App'>Add Recipe</h2>
+              <h2 className='App'>Add Meal</h2>
               <form
                 className='form'
                 onSubmit={e => this.handleSubmit(e, addMeal)}

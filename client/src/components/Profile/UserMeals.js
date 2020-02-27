@@ -61,10 +61,10 @@ export const UserMeals = ({ username }) => (
                   });
                 }}
               >
-                {(deleteUserRecipe, attrs = {}) => (
+                {(deleteUserMeal, attrs = {}) => (
                   <p
                     className='delete-button'
-                    onClick={() => handleDelete(deleteUserRecipe)}
+                    onClick={() => handleDelete(deleteUserMeal)}
                   >
                     {attrs.loading ? 'Deleting Meal ...' : 'X'}
                   </p>

@@ -50,17 +50,17 @@ const MealSchema = new Schema(
       type: String,
       require: true,
     },
-    geometry: {
-      type: {
-        type: String,
-        enum: ['Point'],
-        required: false,
-      },
-      coordinates: {
-        type: [Number],
-        required: false,
-      },
-    },
+    // geometry: {
+    //   type: {
+    //     type: String,
+    //     enum: ['Point'],
+    //     required: false,
+    //   },
+    //   coordinates: {
+    //     type: [Number],
+    //     required: false,
+    //   },
+    // },
     images: {
       type: String,
     },

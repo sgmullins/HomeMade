@@ -35,7 +35,7 @@ const Search = () => {
       <input
         type='text'
         ref={inputRef}
-        placeholder='Recipe'
+        placeholder='Meal'
         onChange={event => setSearchTerm(event.target.value)}
         value={searchTerm}
       />
