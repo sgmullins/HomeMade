@@ -15,7 +15,7 @@ const User = require('./models/User');
 // const { makeExecutableSchema } = require('graphql-tools');
 const { ApolloServer, AuthenticationError } = require('apollo-server-express');
 const schemas = require('./schemas/schemaIndex');
-const { resolvers } = require('./resolvers/resolvers');
+const resolvers = require('./resolvers/resolversIndex.js');
 
 const app = express();
 // app.use(morgan('common'));
