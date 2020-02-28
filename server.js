@@ -14,7 +14,7 @@ const User = require('./models/User');
 // const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 // const { makeExecutableSchema } = require('graphql-tools');
 const { ApolloServer, AuthenticationError } = require('apollo-server-express');
-const { typeDefs } = require('./schemas/schemas');
+const schemas = require('./schemas/schemaIndex');
 const { resolvers } = require('./resolvers/resolvers');
 
 const app = express();
@@ -57,7 +57,7 @@ app.use(async (req, res, next) => {
 });
 
 const server = new ApolloServer({
-  typeDefs,
+  typeDefs: schemas,
   resolvers,
   context: async ({ req }) => {
     return {
