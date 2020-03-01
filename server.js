@@ -18,7 +18,7 @@ const schemas = require('./schemas/schemaIndex');
 const resolvers = require('./resolvers/resolversIndex.js');
 
 const app = express();
-// app.use(morgan('common'));
+app.use(morgan('common'));
 app.use(helmet());
 app.use(
   cors({

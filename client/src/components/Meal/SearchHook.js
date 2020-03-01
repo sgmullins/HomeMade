@@ -14,7 +14,6 @@ const Search = () => {
   // automatically focuses on the search field on render
   useEffect(() => {
     inputRef.current.focus();
-    // eslint-disable-next-line
   }, []);
 
   const renderMeals = () => {

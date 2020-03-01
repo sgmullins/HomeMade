@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const { AuthenticationError } = require('apollo-server-express');
+const {
+  AuthenticationError,
+  UserInputError,
+} = require('apollo-server-express');
 
 const createToken = (user, secret, expiresIn) => {
   const { username, email } = user;
@@ -9,7 +12,7 @@ const createToken = (user, secret, expiresIn) => {
 
 const userResolvers = {
   Query: {
-    getCurrentUser: async (parent, args, { currentUser, models: { User } }) => {
+    getCurrentUser: async (_, args, { currentUser, models: { User } }) => {
       if (!currentUser) return null;
       const user = await User.findOne({ username: currentUser.username })
         .populate({
@@ -24,19 +27,19 @@ const userResolvers = {
     },
   },
   Mutation: {
-    loginUser: async (parent, { username, password }, { models: { User } }) => {
+    loginUser: async (_, { username, password }, { models: { User } }) => {
       const user = await User.findOne({ username });
       if (!user) {
-        throw new AuthenticationError('Invalid credentials');
+        throw new UserInputError('Invalid credentials');
       }
       const matchPasswords = bcrypt.compareSync(password, user.password);
       if (!matchPasswords) {
-        throw new AuthenticationError('Invalid credentials');
+        throw new UserInputError('Invalid credentials');
       }
       return { token: createToken(user, process.env.SECRET, '7d') };
     },
     createUser: async (
-      parent,
+      _,
       { username, email, password },
       { models: { User } },
     ) => {
