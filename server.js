@@ -29,20 +29,6 @@ app.use(
 //body parsing middleware
 app.use(express.json());
 
-//setup JWT Authentication Middleware for backend from localstorage
-// const getUser = async req => {
-//   const token = req.headers['authorization'];
-
-//   if (token) {
-//     // console.log(token);
-//     try {
-//       const currentUser = await jwt.verify(token, process.env.SECRET);
-//       req.currentUser = currentUser;
-//     } catch (e) {
-//       throw new AuthenticationError('Your session expired. Sign in again.');
-//     }
-//   }
-// };
 app.use(async (req, res, next) => {
   const token = req.headers['authorization'];
   if (token !== 'null') {
