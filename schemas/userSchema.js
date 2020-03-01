@@ -22,7 +22,7 @@ const userSchema = gql`
   extend type Mutation {
     loginUser(username: String!, password: String!): Token
 
-    createUser(username: String!, email: String!, password: String!): Token
+    createUser(username: String!, email: String!, password: String!, passwordConfirmation: String!): Token
   }
 `;
 

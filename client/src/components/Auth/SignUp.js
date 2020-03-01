@@ -45,7 +45,7 @@ class SignUp extends Component {
   //   const isInvalid = password !== passwordConfirmation;
   //   return isInvalid;
 
-  // };
+  // }
 
   render() {
     const { username, passwordConfirmation, password, email } = this.state;
@@ -54,7 +54,7 @@ class SignUp extends Component {
         <h2 className='App'>Signup</h2>
         <Mutation
           mutation={SIGNUP_USER}
-          variables={{ username, email, password }}
+          variables={{ username, email, password, passwordConfirmation }}
         >
           {(createUser, { data, loading, error }) => {
             return (

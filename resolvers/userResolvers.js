@@ -40,9 +40,12 @@ const userResolvers = {
     },
     createUser: async (
       _,
-      { username, email, password },
+      { username, email, password, passwordConfirmation },
       { models: { User } },
     ) => {
+      if (password !== passwordConfirmation) {
+        throw new UserInputError('Passwords do not match');
+      }
       const user = await User.findOne({ username });
       if (user) {
         throw new AuthenticationError('User Already Exists');
